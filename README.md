@@ -1,111 +1,50 @@
-Spatio-Temporal Route Optimizer
+# ✈️ Spatio-Temporal Route Optimizer
 
-A C++ based multi-criteria route optimization system that uses graph traversal and constraint-aware DFS to find optimal flight routes across a dynamically connected network.
+A **C++ based multi-criteria route optimization system** that uses **Graph Traversal** and **Constraint-Aware Depth First Search (DFS)** to find optimal flight routes.
 
-Features
-Graph-based representation of a flight network
-Depth First Search (DFS) for route exploration
-Multiple route discovery between source and destination
-Cycle prevention using visited-path checking
-Constraint-aware route traversal
-Early pruning for invalid routes
-Budget constraints
-Travel time constraints
-Maximum flight count constraints
-Cheapest route optimization
-Fastest route optimization
-Minimum flights optimization
-Balanced multi-objective route optimization
-Optimization Criteria
+---
 
-The system allows users to select different optimization strategies:
+## 🚀 Features
 
-Cheapest Route - Minimizes total travel fare.
-Fastest Route - Minimizes total travel time.
-Minimum Flights - Minimizes the number of flights.
-Balanced Route - Uses a weighted multi-objective score considering fare, travel time, and number of flights.
+- 🗺️ **Graph-based representation** of a flight network
+- 🔍 **Depth First Search (DFS)** for route exploration
+- 🛣️ Discovery of **multiple routes** between source and destination
+- 🔄 **Cycle prevention** using visited-path checking
+- ⚡ **Constraint-aware DFS traversal**
+- ✂️ **Early pruning** of invalid routes
+- 💰 **Maximum budget constraint**
+- ⏱️ **Maximum travel time constraint**
+- ✈️ **Maximum flight count constraint**
+- 💸 **Cheapest route optimization**
+- ⚡ **Fastest route optimization**
+- 🛫 **Minimum flights optimization**
+- ⚖️ **Balanced multi-objective optimization**
 
-The balanced optimization score is calculated using normalized values:
+---
 
-Score =
-0.4 × Normalized Fare +
-0.3 × Normalized Time +
-0.3 × Normalized Flights
+## 🎯 Optimization Criteria
 
-The route with the lowest score is selected as the balanced optimal route.
+The system provides **four optimization strategies**:
 
-Algorithm
+### 💰 1. Cheapest Route
 
-The project uses a graph-based DFS traversal approach.
+Minimizes the **total travel fare**.
 
-Source City
-     |
-     v
-Explore Connected Flights
-     |
-     v
-Check Constraints
-     |
-     +---- Constraint Violated ----> Stop Exploration
-     |
-     v
-Continue DFS
-     |
-     v
-Destination Reached
-     |
-     v
-Store Valid Route
-     |
-     v
-Apply Optimization Strategy
-     |
-     v
-Return Optimal Route
-Constraints
+### ⏱️ 2. Fastest Route
 
-During route traversal, the following constraints are checked:
+Minimizes the **total travel time**.
 
-Total Fare ≤ Maximum Budget
-Total Travel Time ≤ Maximum Travel Time
-Number of Flights ≤ Maximum Allowed Flights
+### ✈️ 3. Minimum Flights
 
-Routes violating any constraint are pruned early during DFS traversal.
+Minimizes the **number of flights required**.
 
-Technologies Used
-C++
-Standard Template Library (STL)
-Graph Data Structures
-Depth First Search (DFS)
-Multi-Objective Optimization
-How to Run
+### ⚖️ 4. Balanced Route
 
-Compile the program using:
+Considers **fare, travel time, and number of flights** using a weighted multi-objective score.
 
-g++ main.cpp -o routeOptimizer
+### 📊 Balanced Optimization Score
 
-Run the program:
-
-.\routeOptimizer
-Example Input
-Enter Source City: Delhi
-Enter Destination City: Chennai
-
-Enter Maximum Budget (Rs.): 10000
-Enter Maximum Travel Time (hours): 6
-Enter Maximum Number of Flights: 3
-
-Choose Optimization Preference: 4
-Project Structure
-Spatio-Temporal-Route-Optimizer
-│
-├── main.cpp
-└── README.md
-Future Improvements
-Integration with real-time flight data
-Priority queue-based optimization algorithms
-Dijkstra's algorithm for shortest path comparison
-Dynamic flight availability
-Interactive user interface
-Database integration
-Advanced multi-objective optimization techniques
+```text
+Score = 0.4 × Normalized Fare
+      + 0.3 × Normalized Time
+      + 0.3 × Normalized Flights
